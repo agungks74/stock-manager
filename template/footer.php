@@ -5,7 +5,7 @@
                 <small>
                     <?php
                         $tanggal = new DateTime();
-                        echo "Copyright &copy;". $tanggal->format("Y") . "AgungKs";
+                        echo "Copyright &copy; ". $tanggal->format("Y") . " AgungKs";
                     ?>
                 </small>
             </div>
@@ -13,9 +13,9 @@
     </div>
 </footer>
 
-<script src="../js/jquery-3.3.1.js"></script>
-<script src="../js/popper.js"></script>
-<script src="../js/bootstrap.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.js"></script>
 </body>
 
 </html>
