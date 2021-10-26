@@ -72,7 +72,7 @@ class DB
     public function getWhere($tableName, $condition)
     {
         $whereStr = "WHERE {$condition[0]} {$condition[1]} ?";
-        return $this->get($tableName, $whereStr, $condition[2]);
+        return $this->get($tableName, $whereStr, [$condition[2]]);
     }
 
     public function getWhereOnce($tableName, $condition)
