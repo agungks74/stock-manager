@@ -1,6 +1,9 @@
 <?php
 require "init.php";
 
+$user = new User();
+$user->cekUserSession();
+
 if (empty(Input::get('id_barang'))) {
     die('Maaf halaman ini tidak bisa diakses langsung');
 }

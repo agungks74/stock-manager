@@ -1,7 +1,8 @@
 <?php
 require "init.php";
 
-
+$user = new User();
+$user->cekUserSession();
 
 $DB= DB::getInstance();
 

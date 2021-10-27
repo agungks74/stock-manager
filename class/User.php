@@ -66,6 +66,12 @@ class User
         header("Location: tampil_barang.php");
     }
 
+    public function logout()
+    {
+        unset($_SESSION['username']);
+        header("Location: login.php");
+    }
+
     public function getItem($item)
     {
         return $this->_formItem[$item] ?? '';
@@ -82,5 +88,12 @@ class User
         ];
 
         return $this->_db->insert('user', $newUser);
+    }
+
+    public function cekUserSession()
+    {
+        if (!isset($_SESSION['username'])) {
+            header("Location: login.php");
+        }
     }
 }

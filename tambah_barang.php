@@ -1,6 +1,9 @@
 <?php
 require "init.php";
 
+$user = new User();
+$user->cekUserSession();
+
 $barang = new Barang();
 
 if (!empty($_POST)) {
