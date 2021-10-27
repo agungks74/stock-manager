@@ -70,7 +70,7 @@ class validate
                         $this->_errors[$item] = "Pola {$itemLabel} tidak sesuai";
                     }
                 break;
-                case "exists":
+                case "unique":
                     $DB = DB::getInstance();
                     $tableName = array_key_first($ruleValue);
                     $columnName = $ruleValue[$tableName];
