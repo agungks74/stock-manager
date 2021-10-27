@@ -1,6 +1,8 @@
 <?php
 require "init.php";
 
+
+
 $DB= DB::getInstance();
 
 if (!empty($_GET)) {

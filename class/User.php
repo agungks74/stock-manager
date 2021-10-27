@@ -39,6 +39,33 @@ class User
         }
     }
 
+    public function validasiLogin($formMethod)
+    {
+        $validate = new Validate($formMethod);
+
+        $this->_formItem['username'] = $validate->setRules('username', 'Username', ['sanitize' => 'string','required' => true]);
+        $this->_formItem['password'] = $validate->setRules('password', 'Password', ['sanitize' => 'string', 'required' => true]);
+
+        if (!$validate->isPassed()) {
+            return $validate->getError();
+        } else {
+            $this->_db = DB::getInstance();
+            $this->_db->select('password');
+            $result = $this->_db->getWhereOnce('user', ['username','=',$this->_formItem['username']]);
+
+            if (empty($result) || !password_verify($this->_formItem['password'], $result->password)) {
+                $pesanError[] = "Maaf, username / password salah";
+                return $pesanError;
+            }
+        }
+    }
+
+    public function login()
+    {
+        $_SESSION['username'] = $this->getItem('username');
+        header("Location: tampil_barang.php");
+    }
+
     public function getItem($item)
     {
         return $this->_formItem[$item] ?? '';
